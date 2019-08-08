@@ -136,6 +136,12 @@ Alternatively, you can start with `local` or `unmodified` revision, and change y
 
 ### Layout
 
+`vim-mergetool` defaults to create new tab for merging, if you don't want new tab to be created, set
+
+```vim
+let g:mergetool_use_tab = 0
+```
+
 `vim-mergetool` defaults to two vertical splits layout with `MERGED` file on the left, and `remote` revision on the right. `MERGED` file is processed according to `g:mergetool_prefer_revision` setting as described above.
 
 ```vim

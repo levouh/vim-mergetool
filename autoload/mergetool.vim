@@ -45,7 +45,9 @@ function! mergetool#start() "{{{
 
   " Open in new tab, do not break existing layout
   if !s:run_as_git_mergetool
-    tab split
+     if get(g:, "mergetool_use_tab", 1)
+         tab split
+     endif
   endif
 
   let g:mergetool_in_merge_mode = 1
@@ -104,7 +106,11 @@ function! mergetool#stop() " {{{
     endif
 
     let g:mergetool_in_merge_mode = 0
-    tabclose
+    if get(g:, "mergetool_use_tab", 1)
+        tabclose
+    else
+        only
+    endif
   endif
 endfunction " }}}
 
