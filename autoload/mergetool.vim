@@ -43,11 +43,6 @@ function! mergetool#start() "{{{
         \ bufnr('LOCAL') != -1 &&
         \ bufnr('REMOTE') != -1
 
-  " Open in new tab, do not break existing layout
-  if !s:run_as_git_mergetool
-    tab split
-  endif
-
   let g:mergetool_in_merge_mode = 1
 
   call mergetool#prefer_revision(g:mergetool_prefer_revision)
@@ -104,7 +99,6 @@ function! mergetool#stop() " {{{
     endif
 
     let g:mergetool_in_merge_mode = 0
-    tabclose
   endif
 endfunction " }}}
 
